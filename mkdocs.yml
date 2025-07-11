@@ -1,0 +1,103 @@
+site_name: free-ran-ue
+site_description: 'RAN/UE Simulation Tool'
+site_author: 'alonza0314'
+site_url: 'https://alonza0314.github.io/free-ran-ue'
+
+repo_name: 'alonza0314/free-ran-ue'
+repo_url: 'https://github.com/alonza0314/free-ran-ue'
+
+# Documentation layout
+nav:
+  - Home: index.md
+  - User Guide: user-guide.md
+  - Design Document: design-doc.md
+  - Development Note: dev-note.md
+
+# Theme configuration
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.share
+    - header.autohide
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
+  palette:
+    # Palette toggle for dark mode
+    - scheme: default
+      primary: blue grey
+      accent: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for light mode
+    - scheme: slate
+      primary: blue grey
+      accent: light blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    logo: material/radio-tower
+    repo: fontawesome/brands/github
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+  - minify:
+      minify_html: true
+
+# Extensions
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.mark
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.tilde
+  - admonition
+  - tables
+  - attr_list
+  - md_in_html
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji
+
+# Custom CSS
+extra_css:
+  - stylesheets/extra.css
+
+# Custom JS
+extra_javascript:
+  - javascripts/extra.js
+
+# Footer
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/alonza0314
+  generator: false
+
+# Copyright
+copyright: Copyright &copy; 2025 alonza0314. All rights reserved.
+
+# Documentation directory
+docs_dir: doc 
