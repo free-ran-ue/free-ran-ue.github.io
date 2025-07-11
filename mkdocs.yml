@@ -55,6 +55,7 @@ plugins:
       lang: en
   - minify:
       minify_html: true
+  - callouts
 
 # Extensions
 markdown_extensions:
