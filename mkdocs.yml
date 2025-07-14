@@ -9,9 +9,9 @@ repo_url: 'https://github.com/alonza0314/free-ran-ue'
 # Documentation layout
 nav:
   - Home: index.md
-  - User Guide: user-guide.md
-  - Design Document: design-doc.md
-  - Development Note: dev-note.md
+  - User Guide: doc-user-guide/index.md
+  - Design Document: doc-design-document/index.md
+  - Development Note: doc-develop-note/index.md
 
 # Theme configuration
 theme:
