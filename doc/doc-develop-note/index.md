@@ -3,6 +3,16 @@
 > [!Important]
 > Beleive myself that I can do everything.
 
+## 20250720 UE De-registration Procedure
+
+I complete the whole process with UE de-registration process. It's time to give a great user guide.
+
+## 20250719 Upgrade go 1.24
+
+Today I bump the go version from 1.22 to 1.24(1.24.5) and also add the linter ci action in github workflows.
+
+At github actions, I enable the dependabot for checking go mod deps version.
+
 ## 20250716 Userspace GTP-U: DOWNLINK & Fix SQN Error
 
 It is a great day for finishing the full data plane traffic of user space GTP-U. Now, free-ran-ue can establishment a complete control plane message and funtional data plane trasmission.
