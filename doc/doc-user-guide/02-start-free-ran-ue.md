@@ -1,5 +1,13 @@
 # Start free-ran-ue
 
+> [!Caution]
+> Do not start the UE on the same machine as free5GC, as this will cause data plane forwarding failures.
+>
+> There are two options for deployment:
+>
+> - Use two separate machine.
+> - Use namespace separation. For details, please refer to [Quick Start](03-free-ran-ue-with-namespace.md).
+
 ## A. Prerequisites
 
 - Golang:
