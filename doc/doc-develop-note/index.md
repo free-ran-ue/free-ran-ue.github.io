@@ -3,9 +3,11 @@
 > [!Important]
 > Beleive myself that I can do everything.
 
-## 20250724
+## 20250724 Static NR-DC
 
 I refactor the RAN UE management in gNB and also fix the magic number issue at `AMFUENGAPID` and `RANUENGAPID`.
+
+It is the day that I finish the **Static NR-DC** feature in free-ran-ue. What a powerful day.
 
 ## 20250720 UE De-registration Procedure
 
