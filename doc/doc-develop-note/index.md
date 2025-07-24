@@ -3,6 +3,10 @@
 > [!Important]
 > Beleive myself that I can do everything.
 
+## 20250724
+
+I refactor the RAN UE management in gNB and also fix the magic number issue at `AMFUENGAPID` and `RANUENGAPID`.
+
 ## 20250720 UE De-registration Procedure
 
 I complete the whole process with UE de-registration process. It's time to give a great user guide.
