@@ -44,7 +44,16 @@ The gNB (RAN) establishes four fundamental connections:
 
 ## Xn Interface
 
-In the current implementation, the Xn interface is specifically designed for exchanging TEID information to support the [NR-DC (New Radio Dual Connectivity)](https://free5gc.org/blog/20250219/20250219/) feature
+In the current implementation, the Xn interface is specifically designed for exchanging TEID information to support the NR-DC (New Radio Dual Connectivity) feature.
+
+Now, the Xn interface on each gNB listens on the address and port specified in the YAML configuration file, for example:
+
+```yaml
+xnIp: "10.0.1.2"
+xnPort: 31415
+```
+
+This listener uses TCP, allowing any request to connect to it as needed. The processing function is defined in `gnb/xn.go` and can be extended in the `swtch` section.
 
 ## GTP Forwarding
 
