@@ -5,6 +5,10 @@
 
 ## 20250807
 
+I fixed the bug about configuring QoS flow from YAML file. It should be extract via NAS message.
+
+## 20250806
+
 Today, free5GC correct the invalid imsi value. I also fix it in UE's NAS build test case.
 
 ## 20250731
