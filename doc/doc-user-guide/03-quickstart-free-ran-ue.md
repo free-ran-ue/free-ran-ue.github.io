@@ -189,4 +189,4 @@ The configuration file `config/ue.yaml` has already been set up with the environ
     rtt min/avg/max/mdev = 3.618/3.881/4.067/0.152 ms
     ```
 
-    Now, both gNB and UE are running successfully in the RAN-namespace and UE-namespace respectively.
+Now, both gNB and UE are running successfully in the RAN-namespace and UE-namespace respectively.

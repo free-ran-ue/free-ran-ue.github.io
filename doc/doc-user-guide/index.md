@@ -17,4 +17,5 @@
 
 ## Quick Start
 
-- [free-ran-ue with namespace](03-quickstart-free-ran-ue.md)
+- [free-ran-ue with Namespace](03-quickstart-free-ran-ue.md)
+- [Static NR-DC with Namespace](06-quickstart-static-nrdc.md)
