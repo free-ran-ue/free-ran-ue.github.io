@@ -1,12 +1,14 @@
-# Start free-ran-ue
+# Static NR-DC
 
 > [!Caution]
-> Do not start the UE on the same machine as free5GC, as this will cause data plane forwarding failures.
+>
+> 1. Do not start the Master-gNB and Secondary-gNB on the same machine, as this will cause a GTP port conflict.
+> 2. Do not start the UE on the same machine as free5GC, as this will cause data plane forwarding failures.
 >
 > There are two options for deployment:
 >
-> - Use two separate machines.
-> - Use namespace separation. For details, please refer to [Quick Start](03-free-ran-ue-with-namespace.md).
+> - Use separate machines.
+> - Use namespace separation. For details, please refer to [Quick Start](06-quickstart-static-nrdc.md).
 
 ## A. Prerequisites
 
@@ -62,38 +64,53 @@
 
     After building, a binary executable file will be generated in the `build` folder.
 
-## C. Start gNB
+## C. Start gNBs
 
-- Modify the configuration file for gNB:
+- Modify the configuration file for gNBs:
 
-    The configuration `YAML` file template is located at `free-ran-ue/config/gnb.yaml`.
+    The configuration `YAML` file template is located at:
+
+    - `free-ran-ue/config/gnb-dc-master.yaml`
+    - `free-ran-ue/config/gnb-dc-secondary.yaml`
 
     Ensure that the information matches your core network settings. For core network settings, please refer to: [Start free5GC](01-start-free5gc.md)
 
+    Please also pay attention to the `xnIp` and `xnPort` field, as these will be used for the Xn-interface between the gNBs.
+
 - Start gNB:
 
-    After configuring the `YAML` file, execute the binary in the `build` folder to start gNB with the specified configuration file:
+    After configuring the `YAML` file, execute the binary in the `build` folder to start gNBs with the specified configuration file:
 
-    ```bash
-    ./build/free-ran-ue gnb -c config/gnb.yaml
-    ```
+    - Master-gNB:
+
+        ```bash
+        ./build/free-ran-ue gnb -c config/gnb-dc-master.yaml
+        ```
+
+    - Secondary-gNB:
+
+        ```bash
+        ./build/free-ran-ue gnb -c config/gnb-dc-secondary.yaml
+        ```
 
 ## D. Start UE
 
 - Modify the configuration file for UE:
 
-    The configuration `YAML` file template is located at `free-ran-ue/config/ue.yaml`.
+    The configuration `YAML` file template is located at `free-ran-ue/config/ue-dc.yaml`.
 
     Ensure that the information matches your web console settings, especially the `authenticationSubscription` section. For web console settings, please refer to: [Create Subscriber via Webconsole](https://free5gc.org/guide/Webconsole/Create-Subscriber-via-webconsole/)
 
-    Pay attention to the `ueTunnelDevice` field, as this will be the name of the network interface created later.
+    To test the dual connectivity feature, there should be at least one **flow rule** (e.g. `1.1.1.1/32`) configured under the subscriber.
+
+    Pay attention to the `ueTunnelDevice` field, as this will be the name of the network interface created later. Also make sure the `nrdc` section is configure correctly.
 
 - Start UE:
 
     After configuring the `YAML` file,execute the binary in the `build` folder to start UE with the specified configuration file:
 
     ```bash
-    ./build/free-ran-ue ue -c config/ue.yaml
+    ./build/free-ran-ue ue -c config/ue-dc.yaml
     ```
 
 ## E. ICMP Test
@@ -117,7 +134,7 @@ ueTun0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
-ICMP test with `ueTun0`:
+ICMP test with `ueTun0` via Master-gNB:
 
 ```bash
 ping -I uetun0 8.8.8.8 -c 5
@@ -126,16 +143,37 @@ ping -I uetun0 8.8.8.8 -c 5
 Expected successful output:
 
 ```bash
-PING 8.8.8.8 (8.8.8.8) from 10.60.0.1 ueTun0: 56(84) bytes of data.
-64 bytes from 8.8.8.8: icmp_seq=1 ttl=116 time=3.99 ms
-64 bytes from 8.8.8.8: icmp_seq=2 ttl=116 time=3.90 ms
-64 bytes from 8.8.8.8: icmp_seq=3 ttl=116 time=3.84 ms
-64 bytes from 8.8.8.8: icmp_seq=4 ttl=116 time=4.07 ms
-64 bytes from 8.8.8.8: icmp_seq=5 ttl=116 time=3.62 ms
+PING 8.8.8.8 (8.8.8.8) from 10.60.0.2 ueTun0: 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=116 time=3.71 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=116 time=4.08 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=116 time=3.82 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=116 time=4.25 ms
+64 bytes from 8.8.8.8: icmp_seq=5 ttl=116 time=3.77 ms
 
 --- 8.8.8.8 ping statistics ---
-5 packets transmitted, 5 received, 0% packet loss, time 4007ms
-rtt min/avg/max/mdev = 3.618/3.881/4.067/0.152 ms
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 3.706/3.926/4.252/0.206 ms
 ```
 
-Now, both gNB and UE are running seccussfully.
+ICMP test with `ueTun0` via Secondary-gNB:
+
+```bash
+ping -I ueTun0 1.1.1.1 -c 5
+```
+
+Expected successful output:
+
+```bash
+PING 1.1.1.1 (1.1.1.1) from 10.60.0.2 ueTun0: 56(84) bytes of data.
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=49 time=4.51 ms
+64 bytes from 1.1.1.1: icmp_seq=2 ttl=49 time=4.46 ms
+64 bytes from 1.1.1.1: icmp_seq=3 ttl=49 time=4.27 ms
+64 bytes from 1.1.1.1: icmp_seq=4 ttl=49 time=3.97 ms
+64 bytes from 1.1.1.1: icmp_seq=5 ttl=49 time=4.64 ms
+
+--- 1.1.1.1 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4007ms
+rtt min/avg/max/mdev = 3.972/4.371/4.644/0.232 ms
+```
+
+Now, both the Master-gNB and Secondary-gNB are running successfully. The UE can also use two tunnel paths to handle the traffic.

@@ -1,4 +1,4 @@
-# free-ran-ue with Namespace
+# Static NR-DC with Namespace
 
 > [!Note]
 > Namespace provides an alternative to using a physical machine.
@@ -9,11 +9,11 @@
 
 ## Architecture Overview
 
-Since the network port and routing table will get in conflict, we can set up three namespaces for free5GC/RAN/UE, which means you don't need to bring up real machines.
+Since the GTP port and the routing table will get in conflict, we can set up four namespaces for free5GC/Master RAN/Secondary RAN/UE, which means you don't need to bring up real machines.
 
 Here is the deployment of these three namespaces:
 
-![free-ran-ue-namespace](../image/free-ran-ue-namespace.png)
+![free-ran-ue-dc-namespace](../image/free-ran-ue-dc-namespace.png)
 
 ## A. Prerequisites (Golang Installation)
 
@@ -39,16 +39,16 @@ source ~/.bashrc
     make
     ```
 
-2. Bring up namespaces (under `free-ran-ue`)
+2. Bring up namespaces (under `free-rna-ue`)
 
     ```bash
-    make ns-up
+    make dc-ns-u
     ```
 
     After using, there is `down` command to clean up the namespaces:
 
     ```bash
-    make ns-down
+    make dc- ns-down
     ```
 
 ## C. Configure free5GC
@@ -109,21 +109,39 @@ source ~/.bashrc
 
     For creating a subscriber, please refer to: [Create Subscriber via Webconsole](https://free5gc.org/guide/Webconsole/Create-Subscriber-via-webconsole/)
 
-## D. Start gNB
+    Make sure there is a flow rule (e.g. `1.1.1.1/32`) under the network slice.
+
+## D. Start gNBs
 
 The configuration file `config/gnb.yaml` has already been set up with the environment values. No need to modify the configuration.
 
-1. Enter the RAN-namespace (under `free-ran-ue`)
+- Master-gNB
 
-    ```bash
-    make ns-ran
-    ```
+    1. Enter the Master-RAN namespace (under `free-ran-ue`)
 
-2. Start gNB
+        ```bash
+        make dc-ns-mran
+        ```
 
-    ```bash
-    ./build/free-ran-ue gnb -c config/gnb.yaml
-    ```
+    2. Start Master-gNB
+
+        ```bash
+        ./build/free-ran-ue gnb -c config/gnb-dc-master.yaml
+        ```
+
+- Secondary-gNB
+
+    1. Enter the Master-RAN namespace (under `free-ran-ue`)
+
+        ```bash
+        make dc-ns-sran
+        ```
+
+    2. Start Master-gNB
+
+        ```bash
+        ./build/free-ran-ue gnb -c config/gnb-dc-secondary.yaml
+        ```
 
 ## E. Start UE
 
@@ -132,13 +150,13 @@ The configuration file `config/ue.yaml` has already been set up with the environ
 1. Enter the UE-namespace (under `free-ran-ue`)
 
     ```bash
-    make ns-ue
+    make dc-ns-ue
     ```
 
 2. Start UE
 
     ```bash
-    ./build/free-ran-ue ue -c config/ue.yaml
+    ./build/free-ran-ue ue -c config/ue-dc.yaml
     ```
 
 ## F. ICMP Test
@@ -146,7 +164,7 @@ The configuration file `config/ue.yaml` has already been set up with the environ
 1. Enter the UE-namespace (under `free-ran-ue`)
 
     ```bash
-    make ns-ue
+    make dc-ns-ue
     ```
 
 2. Check the `ueTun0` interface
@@ -168,7 +186,7 @@ The configuration file `config/ue.yaml` has already been set up with the environ
             TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
     ```
 
-3. `ping` test
+3. `ping` test via Master-gMB
 
     ```bash
     ping -I uetun0 8.8.8.8 -c 5
@@ -177,16 +195,37 @@ The configuration file `config/ue.yaml` has already been set up with the environ
     Expected successful output:
 
     ```bash
-    PING 8.8.8.8 (8.8.8.8) from 10.60.0.1 ueTun0: 56(84) bytes of data.
-    64 bytes from 8.8.8.8: icmp_seq=1 ttl=116 time=3.99 ms
-    64 bytes from 8.8.8.8: icmp_seq=2 ttl=116 time=3.90 ms
-    64 bytes from 8.8.8.8: icmp_seq=3 ttl=116 time=3.84 ms
-    64 bytes from 8.8.8.8: icmp_seq=4 ttl=116 time=4.07 ms
-    64 bytes from 8.8.8.8: icmp_seq=5 ttl=116 time=3.62 ms
+    PING 8.8.8.8 (8.8.8.8) from 10.60.0.2 ueTun0: 56(84) bytes of data.
+    64 bytes from 8.8.8.8: icmp_seq=1 ttl=116 time=3.71 ms
+    64 bytes from 8.8.8.8: icmp_seq=2 ttl=116 time=4.08 ms
+    64 bytes from 8.8.8.8: icmp_seq=3 ttl=116 time=3.82 ms
+    64 bytes from 8.8.8.8: icmp_seq=4 ttl=116 time=4.25 ms
+    64 bytes from 8.8.8.8: icmp_seq=5 ttl=116 time=3.77 ms
 
     --- 8.8.8.8 ping statistics ---
-    5 packets transmitted, 5 received, 0% packet loss, time 4007ms
-    rtt min/avg/max/mdev = 3.618/3.881/4.067/0.152 ms
+    5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+    rtt min/avg/max/mdev = 3.706/3.926/4.252/0.206 ms
     ```
 
-    Now, both gNB and UE are running successfully in the RAN-namespace and UE-namespace respectively.
+4. `ping` test via Secondary-gNB
+
+    ```bash
+    ping -I uetun0 1.1.1.1 -c 5
+    ```
+
+    Expected successful output:
+
+    ```bash
+    PING 1.1.1.1 (1.1.1.1) from 10.60.0.2 ueTun0: 56(84) bytes of data.
+    64 bytes from 1.1.1.1: icmp_seq=1 ttl=49 time=4.51 ms
+    64 bytes from 1.1.1.1: icmp_seq=2 ttl=49 time=4.46 ms
+    64 bytes from 1.1.1.1: icmp_seq=3 ttl=49 time=4.27 ms
+    64 bytes from 1.1.1.1: icmp_seq=4 ttl=49 time=3.97 ms
+    64 bytes from 1.1.1.1: icmp_seq=5 ttl=49 time=4.64 ms
+
+    --- 1.1.1.1 ping statistics ---
+    5 packets transmitted, 5 received, 0% packet loss, time 4007ms
+    rtt min/avg/max/mdev = 3.972/4.371/4.644/0.232 ms
+    ```
+
+Now, both the Master-gNB and Secondary-gNB are running successfully in their respective namespaces. The UE also works well with dual path connections.

@@ -13,8 +13,9 @@
 
 ## Advanced Feature
 
-Comming Soon...
+- [Static NR-DC](05-static-nrdc.md)
 
 ## Quick Start
 
-- [free-ran-ue with namespace](03-free-ran-ue-with-namespace.md)
+- [free-ran-ue with Namespace](03-quickstart-free-ran-ue.md)
+- [Static NR-DC with Namespace](06-quickstart-static-nrdc.md)
