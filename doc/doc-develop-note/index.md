@@ -3,6 +3,10 @@
 > [!Important]
 > Beleive myself that I can do everything.
 
+## 20250815
+
+I fixed the bug on parsing GTP header. It will be more formal on handle different header flags.
+
 ## 20250807
 
 I fixed the bug about configuring QoS flow from YAML file. It should be extract via NAS message.
