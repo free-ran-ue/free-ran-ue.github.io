@@ -1,4 +1,4 @@
-# Start free5GC
+# free5GC
 
 > [!Note]
 > For more free5GC's information, please refer to [free5GC's official website](https://free5gc.org/)

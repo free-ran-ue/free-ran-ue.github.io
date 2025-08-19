@@ -1,6 +1,6 @@
 # Logger Level
 
-For both gNB and UE, there is a log level field in the configuration file:
+For gNB, UE and console, there is a log level field in the configuration file:
 
 ```yaml
 logger:
@@ -9,7 +9,7 @@ logger:
 
 ## Log Description
 
-There are six log levels available for both gNB and UE:
+There are six log levels available for gNB, UE and console:
 
 - error: Critical errors that cause the application to stop.
 - warn: Unusual events that do not affect application functionality.

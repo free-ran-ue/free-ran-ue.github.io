@@ -1,4 +1,4 @@
-# Static NR-DC with Namespace
+# Dynamic NR-DC with Namespace
 
 > [!Note]
 > Namespace provides an alternative to using a physical machine.
@@ -15,7 +15,7 @@ Here is the deployment of these three namespaces:
 
 ![free-ran-ue-dc-namespace](../image/free-ran-ue-dc-namespace.png)
 
-## A. Prerequisites (Golang Installation)
+## A. Prerequisites (Golang / Node.js / Yarn Installation)
 
 ```bash
 wget https://dl.google.com/go/go1.24.5.linux-amd64.tar.gz
@@ -27,6 +27,11 @@ echo 'export GOROOT=/usr/local/go' >> ~/.bashrc
 echo 'export PATH=$PATH:$GOPATH/bin:$GOROOT/bin' >> ~/.bashrc
 echo 'export GO111MODULE=auto' >> ~/.bashrc
 source ~/.bashrc
+
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - 
+sudo apt update
+sudo apt install -y nodejs
+sudo corepack enable
 ```
 
 ## B. Namespace Setup
@@ -36,7 +41,7 @@ source ~/.bashrc
     ```bash
     git clone https://github.com/Alonza0314/free-ran-ue.git
     cd free-ran-ue
-    make
+    make all
     ```
 
 2. Bring up namespaces (under `free-ran-ue`)
@@ -126,7 +131,7 @@ The configuration file `config/gnb.yaml` has already been set up with the enviro
     2. Start Master-gNB
 
         ```bash
-        ./build/free-ran-ue gnb -c config/gnb-dc-static-master.yaml
+        ./build/free-ran-ue gnb -c config/gnb-dc-dynamic-master.yaml
         ```
 
 - Secondary-gNB
@@ -140,12 +145,12 @@ The configuration file `config/gnb.yaml` has already been set up with the enviro
     2. Start Master-gNB
 
         ```bash
-        ./build/free-ran-ue gnb -c config/gnb-dc-static-secondary.yaml
+        ./build/free-ran-ue gnb -c config/gnb-dc-dynamic-secondary.yaml
         ```
 
 ## E. Start UE
 
-The configuration file `config/ue-dc-static.yaml` has already been set up with the environment values. No need to modify the configuration.
+The configuration file `config/ue-dc-dynamic.yaml` has already been set up with the environment values. No need to modify the configuration.
 
 1. Enter the UE-namespace (under `free-ran-ue`)
 
@@ -156,10 +161,19 @@ The configuration file `config/ue-dc-static.yaml` has already been set up with t
 2. Start UE
 
     ```bash
-    ./build/free-ran-ue ue -c config/ue-dc-static.yaml
+    ./build/free-ran-ue ue -c config/ue-dc-dynamic.yaml
     ```
 
-## F. ICMP Test
+## F. Start Console
+
+1. Run in the host namespace
+2. Start Console
+
+    ```bash
+    ./build/free-ran-ue console -c config/console.yaml
+    ```
+
+## G. ICMP Test
 
 1. Enter the UE-namespace (under `free-ran-ue`)
 
@@ -186,7 +200,9 @@ The configuration file `config/ue-dc-static.yaml` has already been set up with t
             TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
     ```
 
-3. `ping` test via Master-gMB
+3. Before DC enabled:
+
+    ICMP test with `ueTun0` via Master-gNB:
 
     ```bash
     ping -I uetun0 8.8.8.8 -c 5
@@ -207,10 +223,10 @@ The configuration file `config/ue-dc-static.yaml` has already been set up with t
     rtt min/avg/max/mdev = 3.706/3.926/4.252/0.206 ms
     ```
 
-4. `ping` test via Secondary-gNB
+    ICMP test with `ueTun0` via Secondary-gNB:
 
     ```bash
-    ping -I uetun0 1.1.1.1 -c 5
+    ping -I ueTun0 1.1.1.1 -c 5
     ```
 
     Expected successful output:
@@ -228,4 +244,56 @@ The configuration file `config/ue-dc-static.yaml` has already been set up with t
     rtt min/avg/max/mdev = 3.972/4.371/4.644/0.232 ms
     ```
 
-Now, both the Master-gNB and Secondary-gNB are running successfully in their respective namespaces. The UE also works well with dual path connections.
+4. Use console to start DC:
+
+    1. Enter gNB's information page:
+
+        ![free-ran-ue-gNB-info-non-dc](../image/free-ran-ue-gNB-info-non-dc.png)
+
+    2. Turn on the DC of UE:
+
+        ![free-ran-ue-gNB-info-dc](../image/free-ran-ue-gNB-info-dc.png)
+
+5. After DC enabled:
+
+    ICMP test with `ueTun0` via Master-gNB:
+
+    ```bash
+    ping -I uetun0 8.8.8.8 -c 5
+    ```
+
+    Expected successful output:
+
+    ```bash
+    PING 8.8.8.8 (8.8.8.8) from 10.60.0.2 ueTun0: 56(84) bytes of data.
+    64 bytes from 8.8.8.8: icmp_seq=1 ttl=116 time=4.12 ms
+    64 bytes from 8.8.8.8: icmp_seq=2 ttl=116 time=4.11 ms
+    64 bytes from 8.8.8.8: icmp_seq=3 ttl=116 time=3.99 ms
+    64 bytes from 8.8.8.8: icmp_seq=4 ttl=116 time=3.68 ms
+    64 bytes from 8.8.8.8: icmp_seq=5 ttl=116 time=3.63 ms
+
+    --- 8.8.8.8 ping statistics ---
+    5 packets transmitted, 5 received, 0% packet loss, time 4007ms
+    rtt min/avg/max/mdev = 3.627/3.905/4.120/0.212 ms
+    ```
+
+    ICMP test with `ueTun0` via Secondary-gNB:
+
+    ```bash
+    ping -I ueTun0 1.1.1.1 -c 5
+    ```
+
+    Expected successful output:
+
+    ```bash
+    PING 1.1.1.1 (1.1.1.1) from 10.60.0.2 ueTun0: 56(84) bytes of data.
+    64 bytes from 1.1.1.1: icmp_seq=1 ttl=49 time=4.80 ms
+    64 bytes from 1.1.1.1: icmp_seq=2 ttl=49 time=4.43 ms
+    64 bytes from 1.1.1.1: icmp_seq=3 ttl=49 time=4.42 ms
+    64 bytes from 1.1.1.1: icmp_seq=4 ttl=49 time=4.21 ms
+    64 bytes from 1.1.1.1: icmp_seq=5 ttl=49 time=4.78 ms
+
+    --- 1.1.1.1 ping statistics ---
+    5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+    rtt min/avg/max/mdev = 4.210/4.527/4.797/0.225 ms
+    ```

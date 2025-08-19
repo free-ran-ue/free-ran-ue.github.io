@@ -3,6 +3,10 @@
 > [!Important]
 > Beleive myself that I can do everything.
 
+## 20250819 Dynamic NR-DC
+
+After a long long time, I've finished the manual dynamic NR-DC control in free-ran-ue. Now, user can use the console to switch DC status.
+
 ## 20250815 GTP Parser
 
 I fixed the bug on parsing GTP header. It will be more formal on handle different header flags.

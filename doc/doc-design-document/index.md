@@ -23,3 +23,4 @@ For dual connection, there will be addition data plane connections from core net
 2. [gNB(RAN)](02-gnb.md)
 3. [UE](03-ue.md)
 4. [Static NR-DC](04-static-nr-dc.md)
+5. [Dynamic NR-DC](05-dynamic-nr-dc.md)

@@ -7,15 +7,18 @@
 
 ## Baisc Usage
 
-- [Start free5GC](01-start-free5gc.md)
-- [Start free-ran-ue](02-start-free-ran-ue.md)
+- [free5GC](01-free5gc.md)
+- [free-ran-ue](02-free-ran-ue.md)
+- [Console](07-console.md)
 - [Logger Level](04-logger-level.md)
 
 ## Advanced Feature
 
 - [Static NR-DC](05-static-nrdc.md)
+- [Dynamic NR-DC](08-dynamic-nrdc.md)
 
 ## Quick Start
 
 - [free-ran-ue with Namespace](03-quickstart-free-ran-ue.md)
 - [Static NR-DC with Namespace](06-quickstart-static-nrdc.md)
+- [Dynamic NR-DC with Namespace](09-quickstart-dynamic-nrdc.md)
