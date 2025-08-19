@@ -66,6 +66,53 @@ The supported `NGAP` types are:
 
     1. `ngapType.ProcedureCodePDUSessionResourceModifyIndication`: used for dynamic NR-DC final setup.
 
+## UE types
+
+- RanUe
+
+    - Structure
+
+        ```go
+        type RanUe struct {
+            amfUeNgapId int64
+            ranUeNgapId int64
+
+            mobileIdentity5GS nasType.MobileIdentity5GS
+
+            ulTeid aper.OctetString
+            dlTeid aper.OctetString
+
+            n1Conn        net.Conn
+            dataPlaneConn net.Conn
+
+            nrdcIndicator    bool
+            nrdcIndicatorMtx sync.Mutex
+        }
+        ```
+
+    - Function
+
+        RanUE is used to record all infomation about the UE controlled be gNB.
+
+- XnUE
+
+    - Struct
+
+        ```go
+        type XnUe struct {
+            imsi string
+
+            ulTeid aper.OctetString
+            dlTeid aper.OctetString
+
+            dataPlaneConn net.Conn
+        }
+        ```
+
+    - Function
+
+        XnUE is used to record the infomation about the UE offload from master gNB. XnUE will only handle **data plane** message for forwarding the packets between core network and UE.
+
 ## GTP Forwarding
 
 The gNB implements GTP-U forwarding to handle user plane data between the UE and the core network. This includes:
