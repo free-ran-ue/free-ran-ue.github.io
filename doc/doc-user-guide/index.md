@@ -7,8 +7,9 @@
 
 ## Baisc Usage
 
-- [Start free5GC](01-start-free5gc.md)
-- [Start free-ran-ue](02-start-free-ran-ue.md)
+- [free5GC](01-free5gc.md)
+- [free-ran-ue](02-free-ran-ue.md)
+- [Console](07-console.md)
 - [Logger Level](04-logger-level.md)
 
 ## Advanced Feature

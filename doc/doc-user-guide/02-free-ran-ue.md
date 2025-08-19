@@ -1,4 +1,4 @@
-# Start free-ran-ue
+# free-ran-ue
 
 > [!Caution]
 > Do not start the UE on the same machine as free5GC, as this will cause data plane forwarding failures.
@@ -90,7 +90,7 @@
 
 - Start UE:
 
-    After configuring the `YAML` file,execute the binary in the `build` folder to start UE with the specified configuration file:
+    After configuring the `YAML` file, execute the binary in the `build` folder to start UE with the specified configuration file:
 
     ```bash
     ./build/free-ran-ue ue -c config/ue.yaml
