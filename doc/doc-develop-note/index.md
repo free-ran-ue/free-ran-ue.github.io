@@ -7,15 +7,19 @@
 
 After a long long time, I've finished the manual dynamic NR-DC control in free-ran-ue. Now, user can use the console to switch DC status.
 
-## 20250807
+## 20250815 GTP Parser
+
+I fixed the bug on parsing GTP header. It will be more formal on handle different header flags.
+
+## 20250807 QoS Flow
 
 I fixed the bug about configuring QoS flow from YAML file. It should be extract via NAS message.
 
-## 20250806
+## 20250806 IMSI
 
 Today, free5GC correct the invalid imsi value. I also fix it in UE's NAS build test case.
 
-## 20250731
+## 20250731 Specified Flow
 
 I rename the QoS flow as specified flow due to the dual connection does not need to be **QoS**.
 
