@@ -73,10 +73,10 @@
 
     ```bash
     cd free-ran-ue
-    make
+    make all
     ```
 
-    After building, a binary executable file will be generated in the `build` folder.
+    After building, a binary executable file and frontend static files will be generated in the `build` folder.
 
 ## C. Start Console
 
