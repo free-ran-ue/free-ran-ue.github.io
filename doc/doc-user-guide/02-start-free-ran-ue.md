@@ -56,7 +56,7 @@
 - Build
 
     ```bash
-    cd free-rna-ue
+    cd free-ran-ue
     make
     ```
 

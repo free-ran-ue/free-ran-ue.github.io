@@ -58,7 +58,7 @@
 - Build
 
     ```bash
-    cd free-rna-ue
+    cd free-ran-ue
     make
     ```
 
@@ -112,7 +112,7 @@
     After configuring the `YAML` file,execute the binary in the `build` folder to start UE with the specified configuration file:
 
     ```bash
-    ./build/free-ran-ue ue -c config/ue-dc.yaml
+    ./build/free-ran-ue ue -c config/ue-dc-static.yaml
     ```
 
 ## E. ICMP Test

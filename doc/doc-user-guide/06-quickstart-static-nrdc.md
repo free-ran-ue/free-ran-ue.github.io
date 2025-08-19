@@ -39,7 +39,7 @@ source ~/.bashrc
     make
     ```
 
-2. Bring up namespaces (under `free-rna-ue`)
+2. Bring up namespaces (under `free-ran-ue`)
 
     ```bash
     make dc-ns-u
