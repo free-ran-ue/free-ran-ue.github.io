@@ -30,6 +30,24 @@
         newgrp docker
         ```
 
+- gtp5g
+
+    - Packages
+
+        ```bash
+        sudo apt -y update
+        sudo apt -y install git gcc g++ cmake autoconf libtool pkg-config libmnl-dev libyaml-dev
+        ```
+
+    - Clone, Build and Install
+
+        ```bash
+        git clone https://github.com/free5gc/gtp5g
+        cd gtp5g
+        make
+        sudo make install
+        ```
+
 ## B. Build free-ran-ue Image
 
 - Clone
