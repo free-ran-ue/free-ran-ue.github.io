@@ -3,6 +3,14 @@
 > [!Important]
 > Beleive myself that I can do everything.
 
+## 20250826 Docker
+
+Today I finish the docker deployment in three types:
+
+- Basic Usage
+- Static NR-DC
+- Dynamic NR-DC
+
 ## 20250819 Dynamic NR-DC
 
 After a long long time, I've finished the manual dynamic NR-DC control in free-ran-ue. Now, user can use the console to switch DC status.
