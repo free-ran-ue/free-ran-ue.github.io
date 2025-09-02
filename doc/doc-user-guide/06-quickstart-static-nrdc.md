@@ -15,19 +15,32 @@ Here is the deployment of these three namespaces:
 
 ![free-ran-ue-dc-namespace](../image/free-ran-ue-dc-namespace.png)
 
-## A. Prerequisites (Golang Installation)
+## A. Prerequisites
 
-```bash
-wget https://dl.google.com/go/go1.24.5.linux-amd64.tar.gz
-sudo tar -C /usr/local -zxvf go1.24.5.linux-amd64.tar.gz
-mkdir -p ~/go/{bin,pkg,src}
-# The following assume that your shell is bash:
-echo 'export GOPATH=$HOME/go' >> ~/.bashrc
-echo 'export GOROOT=/usr/local/go' >> ~/.bashrc
-echo 'export PATH=$PATH:$GOPATH/bin:$GOROOT/bin' >> ~/.bashrc
-echo 'export GO111MODULE=auto' >> ~/.bashrc
-source ~/.bashrc
-```
+- Golang
+
+    ```bash
+    wget https://dl.google.com/go/go1.24.5.linux-amd64.tar.gz
+    sudo tar -C /usr/local -zxvf go1.24.5.linux-amd64.tar.gz
+    mkdir -p ~/go/{bin,pkg,src}
+    # The following assume that your shell is bash:
+    echo 'export GOPATH=$HOME/go' >> ~/.bashrc
+    echo 'export GOROOT=/usr/local/go' >> ~/.bashrc
+    echo 'export PATH=$PATH:$GOPATH/bin:$GOROOT/bin' >> ~/.bashrc
+    echo 'export GO111MODULE=auto' >> ~/.bashrc
+    source ~/.bashrc
+    ```
+
+- gtp5g
+
+    ```bash
+    sudo apt -y update
+    sudo apt -y install git gcc g++ cmake autoconf libtool pkg-config libmnl-dev libyaml-dev
+    git clone https://github.com/free5gc/gtp5g
+    cd gtp5g
+    make
+    sudo make install
+    ```
 
 ## B. Namespace Setup
 
