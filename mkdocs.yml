@@ -45,6 +45,7 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
+  favicon: console/frontend/public/free-ran-ue-favicon.png
   icon:
     logo: material/radio-tower
     repo: fontawesome/brands/github
