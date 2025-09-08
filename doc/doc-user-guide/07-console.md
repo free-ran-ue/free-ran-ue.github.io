@@ -133,6 +133,14 @@ Add success:
 
 ![free-ran-ue-gNB-add-success](../image/free-ran-ue-gNB-add-success.png)
 
-## F. Add UE
+## F. UE
 
-Coming soon...
+At UE page, you can see the UE which is connected to gNB or be XnUE at secondary gNB.
+
+- RAN UE List means there is basic UE connection via gNB:
+
+    ![free-ran-ue-ran-ue](../image/free-ran-ue-ran-ue.png)
+
+- Xn UE List means there is DC UE connection at gNB:
+
+    ![free-ran-ue-xn-ue](../image/free-ran-ue-xn-ue.png)
