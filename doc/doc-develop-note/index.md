@@ -3,6 +3,24 @@
 > [!Important]
 > Beleive myself that I can do everything.
 
+## 20250921 Config Validator
+
+While using free-ran-ue, validator will be the first guard to check the configurations' information is correct.
+
+For gNB's validator, it is contributed by [Dan](https://github.com/c9274326). Welcome for new  contributor!!
+
+## 20250919 Xn Interface in Config
+
+I've integrated all the Xn related information in to `xnInterface` in gNB configs.
+
+## 20250910 Config Description
+
+For configurations about gNB and UE, there are clear description for new users.
+
+## 20250908 ULCL
+
+free-ran-ue has supported ULCL deployment!
+
 ## 20250904 Logo and Favicon
 
 The logo and favicon are designed by [Lily](https://github.com/lilywuuuuu). Welcoms for new contributor!!
