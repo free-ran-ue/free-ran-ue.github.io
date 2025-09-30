@@ -11,7 +11,6 @@ nav:
   - Home: index.md
   - User Guide: doc-user-guide/index.md
   - Design Document: doc-design-document/index.md
-  - Develop Note: doc-develop-note/index.md
   - Contributors: doc-contributors/index.md
 
 # Theme configuration
