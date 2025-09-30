@@ -66,7 +66,7 @@ After master gNB finishing the modify procedure, it will send an update message 
     1. Dial a connection to secondary gNB's data plane connection.
 
         ```go
-        conn, err := net.Dial("tcp", fmt.Sprintf("%s:%d", u.nrdc.dcRanDataPlane.ip, u.nrdc.dcRanDataPlane.port))
+        conn, err := util.TcpDialWithOptionalLocalAddress(u.nrdc.dcRanDataPlane.ip, u.nrdc.dcRanDataPlane.port, u.nrdc.dcLocalDataPlaneIp)
         ```
 
     2. Start the data plane read for secondaru gNB.
