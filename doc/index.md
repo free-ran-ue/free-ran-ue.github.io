@@ -4,7 +4,7 @@
 
 ## **Introduction**
 
-**free-ran-ue** is an open source project developed by [Alonza0314](https://github.com/Alonza0314).
+**free-ran-ue** is a next-generation open-source 5G RAN/UE project developed by [Alonza0314](https://github.com/Alonza0314).
 
 The primary goal of this project is to create a next-generation RAN/UE simulator for testing the [NR-DC (New Radio Dual Connectivity)](https://free5gc.org/blog/20250219/20250219/) feature in [free5GC](https://free5gc.org/).
 
