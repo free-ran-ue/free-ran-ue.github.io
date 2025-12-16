@@ -48,24 +48,32 @@
         sudo make install
         ```
 
-## B. Build free-ran-ue Image
+## B. (Optional) Build free-ran-ue Image
+
+If you want to build the image from source code, you need to run the make command; otherwise, the compose file will pull the image from [docker hub](https://hub.docker.com/r/alonza0314/free-ran-ue/tags) with the latest tag. You can also modify the tag in the compose file for specified version.
 
 - Clone
 
     ```bash
-    git clone https://github.com/free-ran-ue/free-ran-ue.git
+    git clone https://github.com/free-ran-ue/fru-compose.git
     ```
 
 - Build Image
 
     ```bash
-    cd free-ran-ue
-    make docker
+    cd fru-compose
+    make
     ```
 
-    After building, use `docker images` cli to check image.
+    After building, use `docker images` cli to check image. The image will be named with `alonza0314/free-ran-ue:latest`.
 
 ## C. Start Compose
+
+Clone the compose repo:
+
+```bash
+git clone https://github.com/free-ran-ue/fru-compose
+```
 
 There are three types of docker compose:
 
@@ -89,7 +97,7 @@ There are three types of docker compose:
 
 ## D. (Only Dynamic NR-DC) Console
 
-Start your browser, and access your host's with the port configure in the `docker/config/fru-consolecfg.yaml`. (defaule is `40104`)
+Start your browser, and access your host's with the port configure in the `config/fru-consolecfg.yaml`. (defaule is `40104`)
 
 The gNBs default configuration are:
 

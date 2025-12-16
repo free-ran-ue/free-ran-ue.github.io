@@ -54,30 +54,40 @@ Here is the deployment of ULCL version:
         sudo make install
         ```
 
-## B. Build free-ran-ue Image
+## B. (Optional) Build free-ran-ue Image
+
+If you want to build the image from source code, you need to run the make command; otherwise, the compose file will pull the image from [docker hub](https://hub.docker.com/r/alonza0314/free-ran-ue/tags) with the latest tag. You can also modify the tag in the compose file for specified version.
 
 - Clone
 
     ```bash
-    git clone https://github.com/free-ran-ue/free-ran-ue.git
+    git clone https://github.com/free-ran-ue/fru-compose.git
     ```
 
 - Build Image
 
     ```bash
-    cd free-ran-ue
-    make docker
+    cd fru-compose
+    make
     ```
 
-    After building, use `docker images` cli to check image.
+    After building, use `docker images` cli to check image. The image will be named with `alonza0314/free-ran-ue:latest`.
 
 ## C. Start ULCL Compose
+
+Clone the compose repo:
+
+```bash
+git clone https://github.com/free-ran-ue/fru-compose
+```
+
+Start the compose:
 
 ```bash
 docker compose -f docker/docker-compose-ulcl.yaml up
 ```
 
-For the specific ue routes, please configure at `free-ran-ue/docker/config/ULCL/uerouting.yaml`.
+For the specific ue routes, please configure at `fru-compose/config/ULCL/uerouting.yaml`.
 
 In default, there is a specific path for destination `1.1.1.1/32`.
 
