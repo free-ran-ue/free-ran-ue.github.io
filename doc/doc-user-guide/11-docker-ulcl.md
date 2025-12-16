@@ -90,7 +90,8 @@ git clone https://github.com/free-ran-ue/fru-compose
 Start the compose:
 
 ```bash
-docker compose -f docker/docker-compose-ulcl.yaml up
+cd fru-compose
+docker compose -f docker-compose-ulcl.yaml up
 ```
 
 For the specific ue routes, please configure at `fru-compose/config/ULCL/uerouting.yaml`.

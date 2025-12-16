@@ -86,19 +86,22 @@ There are three types of docker compose:
 - Basic free-ran-ue
 
     ```bash
-    docker compose -f docker/docker-compose.yaml up
+    cd fru-compose
+    docker compose -f docker-compose.yaml up
     ```
 
 - Static NR-DC
 
     ```bash
-    docker compose -f docker/docker-compose-dc-static.yaml up
+    cd fru-compose
+    docker compose -f docker-compose-dc-static.yaml up
     ```
 
 - Dynamic NR-DC
 
     ```bash
-    docker compose -f docker/docker-compose-dc-dynamic.yaml up
+    cd fru-compose
+    docker compose -f docker-compose-dc-dynamic.yaml up
     ```
 
 ## D. (Only Dynamic NR-DC) Console
