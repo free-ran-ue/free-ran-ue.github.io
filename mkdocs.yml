@@ -22,17 +22,15 @@ nav:
         - Chapter 3：free5GC Overall Architecture and Module Introduction: doc-5g-core-book/en/part2-free5gc/chapter3.md
         - Chapter 4：AMF Deep Dive: doc-5g-core-book/en/part2-free5gc/chapter4.md
         - Chapter 5：SMF, UPF and User Plane Procedures: doc-5g-core-book/en/part2-free5gc/chapter5.md
-        - Chapter 6：Other Network Elements: doc-5g-core-book/en/part2-free5gc/chapter6.md
+        - Chapter 6：Other Network Functions: doc-5g-core-book/en/part2-free5gc/chapter6.md
         - Chapter 7：Non-3GPP Access: doc-5g-core-book/en/part2-free5gc/chapter7.md
       - Part III - free5GC Deployment and Common Issues:
-        - Chapter 8：free5GC Deployment Practice: doc-5g-core-book/en/part3-deploy/chapter8.md
+        - Chapter 8：free5GC Deployment and Configuration: doc-5g-core-book/en/part3-deploy/chapter8.md
         - Chapter 9：Multi-Node / Multi-UPF Deployment: doc-5g-core-book/en/part3-deploy/chapter9.md
       - Part IV - free-ran-ue Simulator:
         - Chapter 10：Why Do We Need a RAN/UE Simulator?: doc-5g-core-book/en/part4-free-ran-ue/chapter10.md
         - Chapter 11：Architecture Design of free-ran-ue: doc-5g-core-book/en/part4-free-ran-ue/chapter11.md
         - Chapter 12：How the Simulator Integrates with free5GC: doc-5g-core-book/en/part4-free-ran-ue/chapter12.md
-      # - Part V - Special Topics and Extended Discussions:
-      #   - Chapter 13：NR-DC Experiment: doc-5g-core-book/en/part5-extension/chapter13.md
     - 中文:
       - 首頁 & 前言: doc-5g-core-book/zh/index.md
       - 作者介紹: doc-5g-core-book/zh/author.md
@@ -52,8 +50,6 @@ nav:
         - 第 10 章：為什麼需要 RAN/UE 模擬器？: doc-5g-core-book/zh/part4-free-ran-ue/chapter10.md
         - 第 11 章：free-ran-ue 的架構設計: doc-5g-core-book/zh/part4-free-ran-ue/chapter11.md
         - 第 12 章：模擬器如何與 free5GC 整合: doc-5g-core-book/zh/part4-free-ran-ue/chapter12.md
-      # - Part V - 專題研究與延伸議題:
-      #   - 第 13 章：NR-DC 實驗: doc-5g-core-book/zh/part5-extension/chapter13.md
   - Contributors: doc-contributors/index.md
 
 # Theme configuration
