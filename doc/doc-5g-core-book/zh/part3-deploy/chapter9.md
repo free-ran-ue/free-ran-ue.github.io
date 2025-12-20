@@ -14,7 +14,7 @@
 
 ## 9.2 什麼是 ULCL（Uplink Classifier）？
 
-![ulcl](./image/ulcl.png)
+![ulcl](../../image/part3/ulcl.png)
 
 ULCL 可以被視為一種「具備分流能力的 UPF 節點」，它的主要任務是在**上行方向（UE → 網路）根據特定規則，把流量分配到不同的下游 UPF 或資料網路**。從功能上看，它仍然是 UPF 的一種，但在拓樸位置與規則設計上，扮演的是「匯入點與分流器」的角色。
 

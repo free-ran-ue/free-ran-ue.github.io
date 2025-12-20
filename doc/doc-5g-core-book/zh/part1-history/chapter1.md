@@ -43,7 +43,7 @@
 
 在 4G 系統中，EPC（Evolved Packet Core，演進封包核心網路）負責把無線接取（eNodeB）與各種外部網路（例如 Internet、企業專網）串接起來。下面簡單介紹幾個在 EPC 中最核心的網元：HSS、MME、S-GW、P-GW 以及 eNodeB。
 
-![epc](./image/epc.png)
+![epc](../../image/part1/epc.png)
 
 - HSS（Home Subscriber Server）
 

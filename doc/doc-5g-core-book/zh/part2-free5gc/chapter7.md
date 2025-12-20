@@ -4,7 +4,7 @@
 
 在 3GPP 中又將 WiFi 的接入功能分為**可信任（TNGF）**與**不可信任（N3IWF）**兩種（如下圖所示），接下來我們將分別介紹這兩種的接入方式與功能。實務上，這兩種接入都會在 UE 與 5GC 之間再加上一層 **非 3GPP Access Network（AN，例如 Wi‑Fi AP + 匯聚交換器/IP 網路）+ TNGF / N3IWF** 的組合，你可以把這個組合視為「對 5GC 來說的另一種 RAN」。
 
-![n3](./image/n3.png)
+![n3](../../image/part2/n3.png)
 
 ## 7.1 TNGF
 
@@ -58,7 +58,7 @@ N3IWF 的安全關鍵在於「雙層防護」：
 
 ## 7.3 ATSSS
 
-![atsss](./image/atsss.png)
+![atsss](../../image/part2/atsss.png)
 
 ATSSS（Access Traffic Steering, Switching and Splitting）是 5G 為了支援「**多接取路徑下的智慧流量控制**」而提出的機制。簡單來說，就是讓同一支 UE 可以同時透過 3GPP 接入（例如 5G NR）與非 3GPP 接入（例如 Wi-Fi/N3IWF），並由核心網與 UE 共同決定：
 
