@@ -1,6 +1,6 @@
 # 第 5 章：SMF、UPF 與使用者面流程
 
-![sbi](./image/sbi.png)
+![sbi](../../image/part2/sbi.png)
 
 在 5G 核心網路中，**SMF（Session Management Function）**與 **UPF（User Plane Function）**是一組「一文一武」的搭檔：SMF 負責幫 UE 設計與管理每一條 PDU 會話的「路線與規則」，UPF 則是在資料面實際收送與轉發封包的節點。當 UE 完成註冊後，SMF 會協同 PCF 等 NF，依據訂閱資料與策略建立或修改 PDU 會話，並透過 N4 介面的 PFCP 把對應的資料面規則下發到一個或多個 UPF，讓整個網路得以正確地轉送 UE 的上下行流量。本章會先從 SMF、UPF 的角色與互動關係談起，再在後續小節中逐步拆解具體的使用者面流程與程式實作細節。
 

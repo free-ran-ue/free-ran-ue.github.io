@@ -51,7 +51,7 @@ free5GC 在 Github 上並不是只有一個倉庫，而是由[主倉庫](https:/
 
 在主倉庫中，free5GC 依照 3GPP 5GC 的定義，將不同網路功能拆分為多個獨立的 Network Function，如下圖所示：
 
-![SBI](./image/sbi.png)
+![SBI](../../image/part2/sbi.png)
 
 從功能面來看，可以大致分為幾種類型：
 

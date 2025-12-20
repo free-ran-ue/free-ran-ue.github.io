@@ -2,7 +2,7 @@
 
 ## 4.1 AMF 在核心網路中的角色
 
-![sbi](./image/sbi.png)
+![sbi](../../image/part2/sbi.png)
 
 在 5G 核心網路中，AMF（**Access and Mobility Management Function，接入與行動性管理功能**）是所有 UE 進入 5GC 的「第一站」。當一支手機開機、發起註冊、建立 PDU 會話或移動到新的區域時，相關的控制訊號幾乎都會先經過 AMF，再由 AMF 與其他 NF（例如 SMF、AUSF、UDM、PCF 等）協調後續處理。
 
@@ -20,7 +20,7 @@
 
 ## 4.2 N2 介面與相關協定
 
-![protocol](./image/protocol.png)
+![protocol](../../image/part2/protocol.png)
 
 ## 4.2.1 N2
 
@@ -120,7 +120,7 @@ AMF 在實作上大量使用 **FSM（Finite State Machine，有限狀態機）**
 
 目前 free5GC AMF 中的狀態機大致上可以用下面這張圖來看：
 
-![fms](./image/fsm.png)
+![fms](../../image/part2/fsm.png)
 
 AMF 會從 UE 的起始非註冊狀態（Degistered）依照狀態機改變的邏輯來更新 AMF 中 UE context 的狀態。圖中三個顏色分別代表如下：
 
