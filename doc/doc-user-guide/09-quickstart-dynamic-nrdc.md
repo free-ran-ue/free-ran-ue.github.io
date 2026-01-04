@@ -20,8 +20,8 @@ Here is the deployment of these three namespaces:
 - Golang / Node.js / Yarn
 
     ```bash
-    wget https://dl.google.com/go/go1.24.5.linux-amd64.tar.gz
-    sudo tar -C /usr/local -zxvf go1.24.5.linux-amd64.tar.gz
+    wget https://dl.google.com/go/go1.25.5.linux-amd64.tar.gz
+    sudo tar -C /usr/local -zxvf go1.25.5.linux-amd64.tar.gz
     mkdir -p ~/go/{bin,pkg,src}
     # The following assume that your shell is bash:
     echo 'export GOPATH=$HOME/go' >> ~/.bashrc

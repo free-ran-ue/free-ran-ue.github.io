@@ -14,14 +14,14 @@
 
 - Golang:
 
-    - free-ran-ue is built, tested and run with `go1.24.5 linux/amd64`
+    - free-ran-ue is built, tested and run with `go1.25.5 linux/amd64`
     - If Golang is not installed on your system, please execute the following commands:
 
         - Install Golang:
 
             ```bash
-            wget https://dl.google.com/go/go1.24.5.linux-amd64.tar.gz
-            sudo tar -C /usr/local -zxvf go1.24.5.linux-amd64.tar.gz
+            wget https://dl.google.com/go/go1.25.5.linux-amd64.tar.gz
+            sudo tar -C /usr/local -zxvf go1.25.5.linux-amd64.tar.gz
             mkdir -p ~/go/{bin,pkg,src}
             # The following assume that your shell is bash:
             echo 'export GOPATH=$HOME/go' >> ~/.bashrc
@@ -41,8 +41,8 @@
 
         ```bash
         sudo rm -rf /usr/local/go
-        wget https://dl.google.com/go/go1.24.5.linux-amd64.tar.gz
-        sudo tar -C /usr/local -zxvf go1.24.5.linux-amd64.tar.gz
+        wget https://dl.google.com/go/go1.25.5.linux-amd64.tar.gz
+        sudo tar -C /usr/local -zxvf go1.25.5.linux-amd64.tar.gz
         source $HOME/.bashrc
         go version
         ```

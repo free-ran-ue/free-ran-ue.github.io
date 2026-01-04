@@ -55,13 +55,13 @@ gtp5g 的 Linux 核心模組是 free5GC 部署中非常關鍵的一個環節。�
 ### 8.2.1 安裝 Go 語言
 
 > [!Note]
-> 目前 free5GC 官方使用的 Go 版本是 1.24.5
+> 目前 free5GC 官方使用的 Go 版本是 1.25.5
 
 1. 安裝 Go
 
     ```bash
-    wget https://dl.google.com/go/go1.24.5.linux-amd64.tar.gz
-    sudo tar -C /usr/local -zxvf go1.24.5.linux-amd64.tar.gz
+    wget https://dl.google.com/go/go1.25.5.linux-amd64.tar.gz
+    sudo tar -C /usr/local -zxvf go1.25.5.linux-amd64.tar.gz
     mkdir -p ~/go/{bin,pkg,src}
     # The following assume that your shell is bash:
     echo 'export GOPATH=$HOME/go' >> ~/.bashrc
