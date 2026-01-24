@@ -6,7 +6,7 @@
 > There are two options for deployment:
 >
 > - Use two separate machines.
-> - Use namespace separation. For details, please refer to [Quick Start](03-quickstart-free-ran-ue.md).
+> - Use namespace separation. For details, please refer to [Namespace](03-namespace-free-ran-ue.md).
 
 ## A. Prerequisites
 

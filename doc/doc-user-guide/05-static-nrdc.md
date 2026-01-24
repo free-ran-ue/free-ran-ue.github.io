@@ -8,7 +8,7 @@
 > There are two options for deployment:
 >
 > - Use separate machines.
-> - Use namespace separation. For details, please refer to [Quick Start](06-quickstart-static-nrdc.md).
+> - Use namespace separation. For details, please refer to [Namespace](06-namespace-static-nrdc.md).
 
 ## A. Prerequisites
 

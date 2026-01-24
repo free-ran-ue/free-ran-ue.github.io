@@ -3,7 +3,7 @@
 > [!Note]
 > **Multiple UEs** means you can launch more than one UE instance with a single command.
 >
-> Before using the multiple UEs command, please refer to [free-ran-ue](02-free-ran-ue.md) or [free-ran-ue with Namespace](03-quickstart-free-ran-ue.md) for basic usage.
+> Before using the multiple UEs command, please refer to [free-ran-ue](02-free-ran-ue.md) or [free-ran-ue with Namespace](03-namespace-free-ran-ue.md) for basic usage.
 
 ## Insert Subscribers
 
