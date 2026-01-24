@@ -4,6 +4,7 @@
 >
 > - It is recommended to set up two separate machines: one dedicated to [free5GC](https://free5gc.org/) and the other to free-ran-ue.
 > - Alternatively, free-ran-ue offers a single-machine solution with namespaces. For more information, please refer to the [Namespace](#namespace) section.
+> - For another choice, it is convenient to run [frush](#quick-start) with [free5GC](https://free5gc.org/) on the same host with testing the basic connection.
 
 ## Baisc Usage
 
@@ -11,6 +12,8 @@
 - [free-ran-ue](02-free-ran-ue.md)
 - [Console](07-console.md)
 - [Logger Level](04-logger-level.md)
+
+## Quick Start
 
 ## Advanced Feature
 
