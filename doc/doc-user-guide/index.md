@@ -5,7 +5,7 @@
 > - It is recommended to set up two separate machines: one dedicated to [free5GC](https://free5gc.org/) and the other to free-ran-ue.
 > - Alternatively, free-ran-ue offers a single-machine solution with namespaces. For more information, please refer to the [Quick Start](#quick-start) section.
 
-## Baisc Usage
+## Basic Usage
 
 - [free5GC](01-free5gc.md)
 - [free-ran-ue](02-free-ran-ue.md)
