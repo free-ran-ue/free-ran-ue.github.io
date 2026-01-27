@@ -15,6 +15,8 @@
 
 ## Quick Start
 
+- [frush](13-frush.md)
+
 ## Advanced Feature
 
 - [Static NR-DC](05-static-nrdc.md)
