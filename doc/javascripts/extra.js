@@ -28,10 +28,28 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add smooth scrolling effect
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (!href || href === '#') {
+        return;
+      }
+
+      const targetId = decodeURIComponent(href.slice(1));
+      const target = document.getElementById(targetId);
+
+      // Only intercept when the anchor target exists; otherwise let default behavior proceed.
+      if (!target) {
+        return;
+      }
+
       e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
       });
+
+      if (window.location.hash !== href) {
+        history.pushState(null, '', href);
+      }
     });
   });
 
