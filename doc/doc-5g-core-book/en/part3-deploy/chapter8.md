@@ -55,13 +55,13 @@ Since the kernel module is responsible for forwarding user-plane packets, IP For
 ### 8.2.1 Installing Go
 
 > [!Note]
-> The Go version currently used by the official free5GC project is Go 1.25.5.
+> The Go version currently used by the official free5GC project is Go 1.26.2.
 
 1. Install Go
 
     ```bash
-    wget https://dl.google.com/go/go1.25.5.linux-amd64.tar.gz
-    sudo tar -C /usr/local -zxvf go1.25.5.linux-amd64.tar.gz
+    wget https://dl.google.com/go/go1.26.2.linux-amd64.tar.gz
+    sudo tar -C /usr/local -zxvf go1.26.2.linux-amd64.tar.gz
     mkdir -p ~/go/{bin,pkg,src}
     # The following assume that your shell is bash:
     echo 'export GOPATH=$HOME/go' >> ~/.bashrc
