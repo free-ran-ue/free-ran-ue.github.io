@@ -72,7 +72,7 @@ Here is the deployment of these three namespaces:
 2. Bring up namespaces (under `free-ran-ue`)
 
     ```bash
-    make dc-ns-u
+    make dc-ns-up
     ```
 
     After using, there is `down` command to clean up the namespaces:
