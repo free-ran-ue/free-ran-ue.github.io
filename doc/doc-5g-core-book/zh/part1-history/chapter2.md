@@ -44,7 +44,7 @@
 
 ### 2.1.2 23.501 / 23.502 的角色
 
-在 5G 核心網相關的文件裡，最常被提到的三個 TS（Technical Specification）是：
+在 5G 核心網相關的文件裡，最常被提到的兩個 TS（Technical Specification）是：
 
 - **TS 23.501 - 系統架構（System Architecture）**
 

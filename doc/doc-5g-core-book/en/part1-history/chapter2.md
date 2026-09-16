@@ -44,7 +44,7 @@ Within 3GPP, the work is broadly divided into three major domains:
 
 ### 2.1.2 The Roles of 23.501 / 23.502
 
-Among the specifications related to the 5G core network, the following three Technical Specifications (TS) are referenced most frequently:
+Among the specifications related to the 5G core network, the following two Technical Specifications (TS) are referenced most frequently:
 
 - **TS 23.501 - System Architecture**
 
