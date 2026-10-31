@@ -75,7 +75,7 @@ Besides using free-ran-ue to fully launch a gNB/UE simulator, if you don't want 
         ```yaml
         gtpu:
           forwarder: gtp5g
-          iifList:
+          ifList:
             - addr: 127.0.0.1
         ```
 
