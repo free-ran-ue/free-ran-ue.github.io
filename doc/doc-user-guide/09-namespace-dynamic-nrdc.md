@@ -120,7 +120,7 @@ Here is the deployment of these three namespaces:
         ```yaml
         gtpu:
           forwarder: gtp5g
-          iifList:
+          ifList:
             - addr: 10.0.1.1
         ```
 
